@@ -18,7 +18,18 @@ const tutorialFile = ref(null)
 
 const submitForm = () => {
   submitted.value = true
-  alert('Data sent! The tutorial was saved successfully.')
+  const tutorialData = {
+    title: title.value,
+    category: category.value,
+    difficulty: difficulty.value,
+    description: description.value,
+    duration: duration.value,
+    releaseDate: releaseDate.value,
+    tags: tags.value,
+    published: published.value,
+    tutorialFile: tutorialFile.value ? tutorialFile.value.name : null
+  }
+  alert('Tutorial data submitted!\n' + JSON.stringify(tutorialData, null, 2))
 }
 </script>
 
@@ -27,34 +38,25 @@ const submitForm = () => {
     <h3>Basic Information</h3>
 
     <TutorialFormBasicInfo
-      :title="title"
-      :category="category"
-      :difficulty="difficulty"
-      @update:title="title = $event"
-      @update:category="category = $event"
-      @update:difficulty="difficulty = $event"
+      v-model:title="title"
+      v-model:category="category"
+      v-model:difficulty="difficulty"
     />
 
     <h3>Details</h3>
 
     <TutorialFormDetails
-      :description="description"
-      :duration="duration"
-      :releaseDate="releaseDate"
-      :tutorialFile="tutorialFile"
-      @update:description="description = $event"
-      @update:duration="duration = $event"
-      @update:releaseDate="releaseDate = $event"
-      @update:tutorialFile="tutorialFile = $event"
+      v-model:description="description"
+      v-model:duration="duration"
+      v-model:releaseDate="releaseDate"
+      v-model:tutorialFile="tutorialFile"
     />
 
     <h3>Options</h3>
 
     <TutorialFormOptions
-      :tags="tags"
-      :published="published"
-      @update:tags="tags = $event"
-      @update:published="published = $event"
+      v-model:tags="tags"
+      v-model:published="published"
     />
 
     <button type="submit">Submit</button>
