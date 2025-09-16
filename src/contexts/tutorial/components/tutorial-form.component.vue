@@ -60,84 +60,10 @@ const submitForm = () => {
     />
 
     <button type="submit">Submit</button>
+    <pv-button label="Submit" />
     <p v-if="submitted">Data sent! The tutorial was saved successfully.</p>
   </form>
 </template>
 
 <style scoped>
-form {
-  max-width: 500px;
-  margin: 40px auto;
-  background: #fff;
-  padding: 24px 32px 32px 32px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-}
-
-.form-row {
-  display: flex;
-  align-items: center;
-  margin-bottom: 18px;
-}
-
-label {
-  flex: 0 0 160px;
-  text-align: right;
-  margin-right: 24px;
-  font-weight: 500;
-}
-
-.form-field {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-input,
-select,
-textarea {
-  padding: 7px 10px;
-  margin-top: 0;
-  width: 100%;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 1rem;
-}
-
-input[type="radio"],
-input[type="checkbox"] {
-  width: auto;
-  margin-right: 6px;
-}
-
-button {
-  width: 100%;
-  margin-top: 20px;
-  padding: 12px;
-  background-color: #42b983;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-size: 1.1rem;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-button:hover {
-  background-color: #369870;
-}
-
-h3 {
-  margin: 32px 0 16px 0;
-  font-size: 1.2rem;
-  color: #333;
-  text-align: left;
-}
-
-p {
-  margin-top: 15px;
-  color: green;
-  text-align: center;
-}
 </style>
