@@ -1,4 +1,4 @@
-﻿<!-- src/shared/ui/composite/language-selector.vue -->
+﻿
 <template>
   <div class="language-selector">
     <pv-dropdown
