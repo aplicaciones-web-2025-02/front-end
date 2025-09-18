@@ -1,22 +1,11 @@
 import './assets/main.css'
-
 import { createApp } from 'vue'
 import App from './App.vue'
-import PrimeVue from 'primevue/config';
-import Aura from '@primeuix/themes/aura';
-import Button from "primevue/button"
-
-
-
-
+import { setupPrimeVue } from '@/shared/ui/primevue'
+import i18n from '@/shared/i18n/i18n.js'
 
 const app = createApp(App)
 
-app.use(PrimeVue, {
-  theme: {
-    preset: Aura
-  }
-});
-app.component('pv-button', Button);
-
+setupPrimeVue(app, 'lara')
+app.use(i18n)
 app.mount('#app')

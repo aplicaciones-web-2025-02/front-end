@@ -1,7 +1,7 @@
 <template>
   <section class="benollmar-page">
-    <h1>Welcome to the Tutorial Platform</h1>
-    <p>Find, create, and manage your tutorials easily.</p>
+    <h1>{{ $t('home.title') }}</h1>
+    <p>{{ $t('home.subTitle') }}</p>
     <tutorial-form />
   </section>
 </template>

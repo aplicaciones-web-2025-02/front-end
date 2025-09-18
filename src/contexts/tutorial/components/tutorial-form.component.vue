@@ -27,7 +27,7 @@ const submitForm = () => {
     releaseDate: releaseDate.value,
     tags: tags.value,
     published: published.value,
-    tutorialFile: tutorialFile.value ? tutorialFile.value.name : null
+    tutorialFile: tutorialFile.value ? tutorialFile.value.name : null,
   }
   alert('Tutorial data submitted!\n' + JSON.stringify(tutorialData, null, 2))
 }
@@ -54,10 +54,19 @@ const submitForm = () => {
 
     <h3>Options</h3>
 
-    <TutorialFormOptions
-      v-model:tags="tags"
-      v-model:published="published"
-    />
+    <TutorialFormOptions v-model:tags="tags" v-model:published="published" />
+
+    <div class="container">
+      <button>button 1</button>
+      <button>button 2</button>
+      <button>button 3</button>
+    </div>
+
+    <div class="container2">
+      <button>button 1</button>
+      <button>button 2</button>
+      <button>button 3</button>
+    </div>
 
     <button type="submit">Submit</button>
     <pv-button label="Submit" />
@@ -66,4 +75,15 @@ const submitForm = () => {
 </template>
 
 <style scoped>
+.container {
+  display: flex; /* or inline-flex */
+  flex-direction: row;
+  flex-flow: wrap;
+  justify-content: space-between;
+}
+
+.container2 {
+  display: grid;
+  grid-gap: 10px;
+}
 </style>
