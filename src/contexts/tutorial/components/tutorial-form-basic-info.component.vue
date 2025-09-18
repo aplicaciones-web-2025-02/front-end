@@ -33,9 +33,12 @@ input[type='radio'] {
   <div>
     <div class="form-row">
       <label for="title">Tutorial Title</label>
+
       <div class="form-field">
         <input id="title" v-model="localTitle" type="text" required />
       </div>
+
+      <img src="https://en.wikipedia.org/wiki/Tabby_cat " alt="cat" />
     </div>
     <div class="form-row">
       <label for="category">Category</label>

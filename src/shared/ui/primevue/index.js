@@ -11,7 +11,7 @@ import Column from 'primevue/column'
 import ColumnGroup from 'primevue/columngroup'
 import Row from 'primevue/row'
 import Rating from 'primevue/rating'
-
+import Dropdown from 'primevue/dropdown'
 export const themes = {
   aura: Aura,
   lara: Lara,
@@ -33,4 +33,5 @@ export function setupPrimeVue(app, selectedTheme = 'aura') {
   app.component('pv-column-group', ColumnGroup)
   app.component('pv-row', Row)
   app.component('pv-rating', Rating)
+  app.component('pv-dropdown', Dropdown)
 }
