@@ -1,35 +1,34 @@
-﻿<script setup>
-import { useI18n } from 'vue-i18n'
-
-const locale = useI18n()
-
-
-const options = [
-  { label: 'English', value: 'en' },
-  { label: 'Español', value: 'es' },
-  { label: 'Français', value: 'fr' },
-]
-
-
-function changeLanguage(e) {
-  console.log('e.value : ' + e.value)
-  console.log('locale : ' + locale.value)
-  locale.value = e.value
-}
-</script>
-
+﻿<!-- src/shared/ui/composite/language-selector.vue -->
 <template>
   <div class="language-selector">
     <pv-dropdown
+      v-model="selected"
       :options="options"
-      option-label="label"
-      option-value="value"
-      v-model="locale"
-      @change="changeLanguage"
+      optionLabel="label"
+      optionValue="value"
       placeholder="Select Language"
     />
   </div>
 </template>
+
+<script setup>
+import { ref, watch } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { locale } = useI18n()
+const selected = ref(locale.value)
+
+const availableLocales = import.meta.env.VITE_I18N_LOCALES?.split(',') || ['en', 'es', 'fr']
+
+const options = availableLocales.map(code => ({
+  label: new Intl.DisplayNames([code], { type: 'language' }).of(code),
+  value: code,
+}))
+
+watch(selected, newLocale => {
+  locale.value = newLocale
+})
+</script>
 
 <style scoped>
 .language-selector {
