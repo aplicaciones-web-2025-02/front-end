@@ -32,20 +32,32 @@ input[type='checkbox'] {
 <template>
   <div>
     <div class="form-row">
-      <label for="tags">Tags</label>
+      <label for="tags">{{ $t('tutorial.form.tags') }}</label>
       <div class="form-field">
-        <select id="tags" v-model="localTags" multiple>
-          <option value="vue">Vue</option>
-          <option value="javascript">JavaScript</option>
-          <option value="css">CSS</option>
-          <option value="html">HTML</option>
+        <select
+          id="tags"
+          v-model="localTags"
+          multiple
+          :aria-label="$t('aria.tagsField')"
+          aria-multiselectable="true"
+        >
+          <option value="vue">{{ $t('tutorial.tags.vue') }}</option>
+          <option value="javascript">{{ $t('tutorial.tags.javascript') }}</option>
+          <option value="css">{{ $t('tutorial.tags.css') }}</option>
+          <option value="html">{{ $t('tutorial.tags.html') }}</option>
         </select>
       </div>
     </div>
     <div class="form-row">
-      <label for="published">Published</label>
+      <label for="published">{{ $t('tutorial.form.published') }}</label>
       <div class="form-field" style="flex-direction: row; align-items: center">
-        <input type="checkbox" id="published" v-model="localPublished" />
+        <input
+          type="checkbox"
+          id="published"
+          v-model="localPublished"
+          :aria-label="$t('aria.publishedField')"
+          role="checkbox"
+        />
       </div>
     </div>
   </div>

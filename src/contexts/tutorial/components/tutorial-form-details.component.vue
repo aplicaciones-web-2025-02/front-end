@@ -29,29 +29,55 @@ textarea {
 <template>
   <div>
     <div class="form-row">
-      <label for="description">Description</label>
+      <label for="description">{{ $t('tutorial.form.description') }}</label>
       <div class="form-field">
-        <textarea id="description" v-model="localDescription" rows="4" />
+        <textarea
+          id="description"
+          v-model="localDescription"
+          rows="4"
+          :aria-label="$t('aria.descriptionField')"
+        />
       </div>
     </div>
     <div class="form-row">
-      <label for="duration">Duration (minutes)</label>
+      <label for="duration">{{ $t('tutorial.form.duration') }}</label>
       <div class="form-field">
-        <input id="duration" v-model="localDuration" type="number" min="0" />
-        <pv-input-number v-model="localDuration" inputId="integeronly" fluid />
+        <input
+          id="duration"
+          v-model="localDuration"
+          type="number"
+          min="0"
+          :aria-label="$t('aria.durationField')"
+        />
+        <pv-input-number
+          v-model="localDuration"
+          inputId="integeronly"
+          fluid
+          :aria-label="$t('aria.durationField')"
+        />
       </div>
     </div>
     <div class="form-row">
-      <label for="releaseDate">Release Date</label>
+      <label for="releaseDate">{{ $t('tutorial.form.releaseDate') }}</label>
       <div class="form-field">
-        <input id="releaseDate" v-model="localReleaseDate" type="date" />
-        <pv-date-picker v-model="localReleaseDate" />
+        <input
+          id="releaseDate"
+          v-model="localReleaseDate"
+          type="date"
+          :aria-label="$t('aria.releaseDateField')"
+        />
+        <pv-date-picker v-model="localReleaseDate" :aria-label="$t('aria.releaseDateField')" />
       </div>
     </div>
     <div class="form-row">
-      <label for="tutorialFile">Upload File</label>
+      <label for="tutorialFile">{{ $t('tutorial.form.uploadFile') }}</label>
       <div class="form-field">
-        <input id="tutorialFile" type="file" @change="onFileChange" />
+        <input
+          id="tutorialFile"
+          type="file"
+          @change="onFileChange"
+          :aria-label="$t('aria.fileUploadField')"
+        />
       </div>
     </div>
     <pv-file-upload
@@ -64,37 +90,43 @@ textarea {
       @upload="onFileChange"
     />
 
-    <pv-data-table :value="products">
-      <pv-column field="code" header="Code"></pv-column>
-      <pv-column field="name" header="Name"></pv-column>
-      <pv-column field="category" header="Category"></pv-column>
-      <pv-column field="quantity" header="Quantity"></pv-column>
+    <pv-data-table :value="products" role="table" :aria-label="$t('aria.productsTable')">
+      <pv-column field="code" :header="$t('dataTable.headers.code')"></pv-column>
+      <pv-column field="name" :header="$t('dataTable.headers.name')"></pv-column>
+      <pv-column field="category" :header="$t('dataTable.headers.category')"></pv-column>
+      <pv-column field="quantity" :header="$t('dataTable.headers.quantity')"></pv-column>
     </pv-data-table>
 
-    <pv-data-table :value="products" tableStyle="min-width: 50rem">
+    <pv-data-table
+      :value="products"
+      tableStyle="min-width: 50rem"
+      role="table"
+      :aria-label="$t('aria.productsTable')"
+    >
       <template #header>
         <div class="flex flex-wrap items-center justify-between gap-2">
-          <span class="text-xl font-bold">Products</span>
-          <pv-button icon="pi pi-refresh" rounded raised />
+          <span class="text-xl font-bold">{{ $t('dataTable.products') }}</span>
+          <pv-button icon="pi pi-refresh" rounded raised :aria-label="$t('aria.refreshButton')" />
         </div>
       </template>
-      <pv-column field="name" header="Name"></pv-column>
-      <pv-column header="Image">
+      <pv-column field="name" :header="$t('dataTable.headers.name')"></pv-column>
+      <pv-column :header="$t('dataTable.headers.image')">
         <template #body="slotProps">
           <img
             :src="`https://primefaces.org/cdn/primevue/images/product/${slotProps.data.image}`"
-            :alt="slotProps.data.image"
+            :alt="`${$t('aria.productImage')}: ${slotProps.data.name}`"
             class="w-24 rounded"
+            role="img"
           />
         </template>
       </pv-column>
-      <pv-column field="price" header="Price">
+      <pv-column field="price" :header="$t('dataTable.headers.price')">
         <template #body="slotProps">
           {{ formatCurrency(slotProps.data.price) }}
         </template>
       </pv-column>
-      <pv-column field="category" header="Category"></pv-column>
-      <pv-column field="rating" header="Reviews">
+      <pv-column field="category" :header="$t('dataTable.headers.category')"></pv-column>
+      <pv-column field="rating" :header="$t('dataTable.headers.reviews')">
         <template #body="slotProps">
           <pv-rating :modelValue="slotProps.data.rating" readonly />
         </template>

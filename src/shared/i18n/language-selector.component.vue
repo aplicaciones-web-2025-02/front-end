@@ -1,12 +1,13 @@
-﻿
-<template>
+﻿<template>
   <div class="language-selector">
     <pv-dropdown
       v-model="selected"
       :options="options"
       optionLabel="label"
       optionValue="value"
-      placeholder="Select Language"
+      :placeholder="$t('common.selectLanguage')"
+      :aria-label="$t('aria.languageSelector')"
+      role="listbox"
     />
   </div>
 </template>
@@ -20,12 +21,12 @@ const selected = ref(locale.value)
 
 const availableLocales = import.meta.env.VITE_I18N_LOCALES?.split(',') || ['en', 'es', 'fr']
 
-const options = availableLocales.map(code => ({
+const options = availableLocales.map((code) => ({
   label: new Intl.DisplayNames([code], { type: 'language' }).of(code),
   value: code,
 }))
 
-watch(selected, newLocale => {
+watch(selected, (newLocale) => {
   locale.value = newLocale
 })
 </script>

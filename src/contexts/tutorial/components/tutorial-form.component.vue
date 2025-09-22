@@ -34,43 +34,49 @@ const submitForm = () => {
 </script>
 
 <template>
-  <form @submit.prevent="submitForm">
-    <h3>Basic Information</h3>
+  <form @submit.prevent="submitForm" role="form" :aria-label="$t('aria.mainForm')">
+    <h3 role="heading" aria-level="3">{{ $t('tutorial.form.basicInfo') }}</h3>
 
-    <TutorialFormBasicInfo
-      v-model:title="title"
-      v-model:category="category"
-      v-model:difficulty="difficulty"
-    />
+    <section :aria-label="$t('aria.basicInfoSection')">
+      <TutorialFormBasicInfo
+        v-model:title="title"
+        v-model:category="category"
+        v-model:difficulty="difficulty"
+      />
+    </section>
 
-    <h3>Details</h3>
+    <h3 role="heading" aria-level="3">{{ $t('tutorial.form.details') }}</h3>
 
-    <TutorialFormDetails
-      v-model:description="description"
-      v-model:duration="duration"
-      v-model:releaseDate="releaseDate"
-      v-model:tutorialFile="tutorialFile"
-    />
+    <section :aria-label="$t('aria.detailsSection')">
+      <TutorialFormDetails
+        v-model:description="description"
+        v-model:duration="duration"
+        v-model:releaseDate="releaseDate"
+        v-model:tutorialFile="tutorialFile"
+      />
+    </section>
 
-    <h3>Options</h3>
+    <h3 role="heading" aria-level="3">{{ $t('tutorial.form.options') }}</h3>
 
-    <TutorialFormOptions v-model:tags="tags" v-model:published="published" />
+    <section :aria-label="$t('aria.optionsSection')">
+      <TutorialFormOptions v-model:tags="tags" v-model:published="published" />
+    </section>
 
     <div class="container">
-      <button>button 1</button>
-      <button>button 2</button>
-      <button>button 3</button>
+      <button type="button" :aria-label="$t('common.button1')">{{ $t('common.button1') }}</button>
+      <button type="button" :aria-label="$t('common.button2')">{{ $t('common.button2') }}</button>
+      <button type="button" :aria-label="$t('common.button3')">{{ $t('common.button3') }}</button>
     </div>
 
     <div class="container2">
-      <button>button 1</button>
-      <button>button 2</button>
-      <button>button 3</button>
+      <button type="button" :aria-label="$t('common.button1')">{{ $t('common.button1') }}</button>
+      <button type="button" :aria-label="$t('common.button2')">{{ $t('common.button2') }}</button>
+      <button type="button" :aria-label="$t('common.button3')">{{ $t('common.button3') }}</button>
     </div>
 
-    <button type="submit">Submit</button>
-    <pv-button label="Submit" />
-    <p v-if="submitted">Data sent! The tutorial was saved successfully.</p>
+    <button type="submit" :aria-label="$t('aria.submitButton')">{{ $t('common.submit') }}</button>
+    <pv-button :label="$t('common.submit')" :aria-label="$t('aria.submitButton')" />
+    <p v-if="submitted" role="alert" aria-live="polite">{{ $t('tutorial.form.success') }}</p>
   </form>
 </template>
 

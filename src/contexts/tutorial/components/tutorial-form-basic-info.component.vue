@@ -32,35 +32,62 @@ input[type='radio'] {
 <template>
   <div>
     <div class="form-row">
-      <label for="title">Tutorial Title</label>
+      <label for="title">{{ $t('tutorial.form.title') }}</label>
 
       <div class="form-field">
-        <input id="title" v-model="localTitle" type="text" required />
+        <input
+          id="title"
+          v-model="localTitle"
+          type="text"
+          required
+          :aria-label="$t('aria.titleField')"
+          :aria-describedby="title - help"
+        />
       </div>
 
       <img src="https://en.wikipedia.org/wiki/Tabby_cat " alt="cat" />
     </div>
     <div class="form-row">
-      <label for="category">Category</label>
+      <label for="category">{{ $t('tutorial.form.category') }}</label>
       <div class="form-field">
-        <select id="category" v-model="localCategory">
-          <option value="frontend">Frontend</option>
-          <option value="backend">Backend</option>
-          <option value="devops">DevOps</option>
-          <option value="data">Data Science</option>
+        <select id="category" v-model="localCategory" :aria-label="$t('aria.categoryField')">
+          <option value="frontend">{{ $t('tutorial.categories.frontend') }}</option>
+          <option value="backend">{{ $t('tutorial.categories.backend') }}</option>
+          <option value="devops">{{ $t('tutorial.categories.devops') }}</option>
+          <option value="data">{{ $t('tutorial.categories.data') }}</option>
         </select>
       </div>
     </div>
     <div class="form-row">
-      <label>Difficulty</label>
-      <div class="form-field" style="flex-direction: row; gap: 1rem; align-items: center">
-        <input type="radio" id="beginner" value="beginner" v-model="localDifficulty" />
-        <label for="beginner">Beginner</label>
-        <input type="radio" id="intermediate" value="intermediate" v-model="localDifficulty" />
-        <label for="intermediate">Intermediate</label>
-        <input type="radio" id="advanced" value="advanced" v-model="localDifficulty" />
-        <label for="advanced">Advanced</label>
-      </div>
+      <fieldset :aria-label="$t('aria.difficultyGroup')">
+        <legend>{{ $t('tutorial.form.difficulty') }}</legend>
+        <div class="form-field" style="flex-direction: row; gap: 1rem; align-items: center">
+          <input
+            type="radio"
+            id="beginner"
+            value="beginner"
+            v-model="localDifficulty"
+            :aria-label="$t('aria.beginnerOption')"
+          />
+          <label for="beginner">{{ $t('tutorial.difficulties.beginner') }}</label>
+          <input
+            type="radio"
+            id="intermediate"
+            value="intermediate"
+            v-model="localDifficulty"
+            :aria-label="$t('aria.intermediateOption')"
+          />
+          <label for="intermediate">{{ $t('tutorial.difficulties.intermediate') }}</label>
+          <input
+            type="radio"
+            id="advanced"
+            value="advanced"
+            v-model="localDifficulty"
+            :aria-label="$t('aria.advancedOption')"
+          />
+          <label for="advanced">{{ $t('tutorial.difficulties.advanced') }}</label>
+        </div>
+      </fieldset>
     </div>
   </div>
 </template>

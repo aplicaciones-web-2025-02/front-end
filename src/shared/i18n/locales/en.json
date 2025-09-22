@@ -2,5 +2,101 @@
   "home": {
     "title": "Welcome to the Tutorial Platform",
     "subTitle": "Find, create, and manage your tutorials easily."
+  },
+  "layout": {
+    "header": {
+      "logo": "Learning Center"
+    },
+    "menu": {
+      "dashboard": "Dashboard",
+      "courses": "Courses",
+      "students": "Students",
+      "settings": "Settings"
+    }
+  },
+  "common": {
+    "selectLanguage": "Select Language",
+    "submit": "Submit",
+    "button1": "Button 1",
+    "button2": "Button 2",
+    "button3": "Button 3"
+  },
+  "tutorial": {
+    "form": {
+      "basicInfo": "Basic Information",
+      "details": "Details",
+      "options": "Options",
+      "title": "Tutorial Title",
+      "category": "Category",
+      "difficulty": "Difficulty",
+      "description": "Description",
+      "duration": "Duration (minutes)",
+      "releaseDate": "Release Date",
+      "uploadFile": "Upload File",
+      "tags": "Tags",
+      "published": "Published",
+      "success": "Data sent! The tutorial was saved successfully."
+    },
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "devops": "DevOps",
+      "data": "Data Science"
+    },
+    "difficulties": {
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced"
+    },
+    "tags": {
+      "vue": "Vue",
+      "javascript": "JavaScript",
+      "css": "CSS",
+      "html": "HTML"
+    }
+  },
+  "dataTable": {
+    "headers": {
+      "code": "Code",
+      "name": "Name",
+      "category": "Category",
+      "quantity": "Quantity",
+      "price": "Price",
+      "reviews": "Reviews",
+      "image": "Image"
+    },
+    "products": "Products"
+  },
+  "aria": {
+    "navigation": "Main navigation",
+    "header": "Main header",
+    "logo": "Learning Center logo",
+    "languageSelector": "Language selector dropdown",
+    "mainForm": "Tutorial creation form",
+    "basicInfoSection": "Basic information section",
+    "detailsSection": "Details section",
+    "optionsSection": "Options section",
+    "titleField": "Tutorial title input field",
+    "categoryField": "Category selection dropdown",
+    "difficultyGroup": "Difficulty level selection",
+    "beginnerOption": "Beginner difficulty level",
+    "intermediateOption": "Intermediate difficulty level",
+    "advancedOption": "Advanced difficulty level",
+    "descriptionField": "Tutorial description text area",
+    "durationField": "Duration in minutes input field",
+    "releaseDateField": "Release date picker",
+    "fileUploadField": "File upload input",
+    "tagsField": "Tags selection dropdown",
+    "publishedField": "Published status checkbox",
+    "submitButton": "Submit tutorial form",
+    "refreshButton": "Refresh products table",
+    "productsTable": "Products data table",
+    "productImage": "Product image",
+    "menu": {
+      "dashboard": "Navigate to dashboard",
+      "courses": "Navigate to courses",
+      "students": "Navigate to students",
+      "settings": "Navigate to settings"
+    }
   }
 }
