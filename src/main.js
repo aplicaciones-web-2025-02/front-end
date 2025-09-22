@@ -1,8 +1,8 @@
 import './assets/main.css'
 import { createApp } from 'vue'
 import App from './App.vue'
-import { setupPrimeVue } from '@/shared/ui/primevue'
-import i18n from '@/shared/i18n/i18n.js'
+import { setupPrimeVue } from '@/shared-kernel/infrastructure/ui-framework/primevue'
+import i18n from '@/shared-kernel/infrastructure/i18n/i18n.js'
 
 const app = createApp(App)
 

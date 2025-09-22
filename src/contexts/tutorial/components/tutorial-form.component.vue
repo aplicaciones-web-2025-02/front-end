@@ -62,34 +62,24 @@ const submitForm = () => {
       <TutorialFormOptions v-model:tags="tags" v-model:published="published" />
     </section>
 
-    <div class="container">
-      <button type="button" :aria-label="$t('common.button1')">{{ $t('common.button1') }}</button>
-      <button type="button" :aria-label="$t('common.button2')">{{ $t('common.button2') }}</button>
-      <button type="button" :aria-label="$t('common.button3')">{{ $t('common.button3') }}</button>
-    </div>
-
-    <div class="container2">
-      <button type="button" :aria-label="$t('common.button1')">{{ $t('common.button1') }}</button>
-      <button type="button" :aria-label="$t('common.button2')">{{ $t('common.button2') }}</button>
-      <button type="button" :aria-label="$t('common.button3')">{{ $t('common.button3') }}</button>
-    </div>
-
     <button type="submit" :aria-label="$t('aria.submitButton')">{{ $t('common.submit') }}</button>
-    <pv-button :label="$t('common.submit')" :aria-label="$t('aria.submitButton')" />
     <p v-if="submitted" role="alert" aria-live="polite">{{ $t('tutorial.form.success') }}</p>
   </form>
 </template>
 
 <style scoped>
-.container {
-  display: flex; /* or inline-flex */
-  flex-direction: row;
-  flex-flow: wrap;
-  justify-content: space-between;
+button[type="submit"] {
+  margin-top: 24px;
+  padding: 12px 24px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
 }
 
-.container2 {
-  display: grid;
-  grid-gap: 10px;
+button[type="submit"]:hover {
+  background-color: #0056b3;
 }
 </style>

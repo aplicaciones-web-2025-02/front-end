@@ -9,7 +9,7 @@
 
 <script setup>
 import TutorialForm from '../../tutorial/components/tutorial-form.component.vue'
-import LanguageSelector from '@/shared/i18n/language-selector.component.vue'
+import LanguageSelector from '@/shared-kernel/presentation/ui/components/language-selector.component.vue'
 </script>
 
 <style scoped>

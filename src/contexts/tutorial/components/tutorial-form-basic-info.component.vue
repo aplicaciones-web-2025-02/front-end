@@ -41,11 +41,8 @@ input[type='radio'] {
           type="text"
           required
           :aria-label="$t('aria.titleField')"
-          :aria-describedby="title - help"
         />
       </div>
-
-      <img src="https://en.wikipedia.org/wiki/Tabby_cat " alt="cat" />
     </div>
     <div class="form-row">
       <label for="category">{{ $t('tutorial.form.category') }}</label>

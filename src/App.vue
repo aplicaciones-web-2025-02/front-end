@@ -3,7 +3,7 @@
 </template>
 
 <script setup>
-import MainLayout from './layouts/default/main-layout.component.vue'
+import MainLayout from './shared-kernel/presentation/layouts/default/main-layout.component.vue'
 </script>
 
 <style scoped></style>
