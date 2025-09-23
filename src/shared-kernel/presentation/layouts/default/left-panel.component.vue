@@ -7,9 +7,10 @@
       <li role="none">
         <RouterLink to="/about">Go to About</RouterLink>
       </li>
+      <li role="none">
+        <RouterLink to="/tutorials">Go to tutorials</RouterLink>
+      </li>
     </ul>
   </aside>
 </template>
-
-
-
+<script setup lang="ts"></script>

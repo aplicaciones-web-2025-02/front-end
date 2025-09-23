@@ -86,8 +86,6 @@ const props = defineProps({
   tutorialFile: File,
 })
 
-
-
 const emits = defineEmits([
   'update:description',
   'update:duration',

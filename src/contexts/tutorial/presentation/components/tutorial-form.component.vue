@@ -68,7 +68,7 @@ const submitForm = () => {
 </template>
 
 <style scoped>
-button[type="submit"] {
+button[type='submit'] {
   margin-top: 24px;
   padding: 12px 24px;
   background-color: #007bff;
@@ -79,7 +79,7 @@ button[type="submit"] {
   cursor: pointer;
 }
 
-button[type="submit"]:hover {
+button[type='submit']:hover {
   background-color: #0056b3;
 }
 </style>

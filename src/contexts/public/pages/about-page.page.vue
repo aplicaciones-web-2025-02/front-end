@@ -1,13 +1,9 @@
 ﻿<script>
 export default {
-  name: 'about-page.page'
+  name: 'about-page.page',
 }
 </script>
 
-<template>
-this page show the about-page page.
-</template>
+<template>this page show the about-page page.</template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
