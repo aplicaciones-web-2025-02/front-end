@@ -1,12 +1,16 @@
 ﻿<script setup>
 import { TutorialApiService } from '@/contexts/tutorial/infraestructure/tutorial-api.service.js'
+import { TutorialAssembler } from '@/contexts/tutorial/Domain/tutorial.assembler.js'
 import { ref, onBeforeMount } from 'vue'
+
+
 
 const tutorials = ref([])
 const tutorialService = new TutorialApiService()
 
+
 const GetAllTutorial = async () => {
-  const response = await tutorialService.GetAll()
+  const response = TutorialAssembler.toEntitiesFromResponse(await tutorialService.GetAll())
   tutorials.value = response
   console.log(response)
   console.log(tutorials.value)

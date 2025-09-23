@@ -1,7 +1,7 @@
 ﻿import HomePage from '@/contexts/public/pages/home-page.page.vue'
 import AboutPage from '@/contexts/public/pages/about-page.page.vue'
 import NotFoundComponent from '@/shared-kernel/presentation/ui/components/not-found.component.vue'
-import TutorialList from '@/contexts/tutorial/presentation/components/tutorial-list.page.vue'
+import TutorialList from '@/contexts/tutorial/presentation/pages/tutorial-list.page.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
