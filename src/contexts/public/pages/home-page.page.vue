@@ -8,7 +8,7 @@
 </template>
 
 <script setup>
-import TutorialForm from '../../tutorial/components/tutorial-form.component.vue'
+import TutorialForm from '@/contexts/tutorial/presentation/components/tutorial-form.component.vue'
 import LanguageSelector from '@/shared-kernel/presentation/ui/components/language-selector.component.vue'
 </script>
 
