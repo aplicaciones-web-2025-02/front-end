@@ -8,12 +8,9 @@ import { ref, onBeforeMount } from 'vue'
 const tutorials = ref([])
 const tutorialService = new TutorialApiService()
 
-
 const GetAllTutorial = async () => {
   const response = TutorialAssembler.toEntitiesFromResponse(await tutorialService.GetAll())
   tutorials.value = response
-  console.log(response)
-  console.log(tutorials.value)
 }
 
 onBeforeMount(async () => {
