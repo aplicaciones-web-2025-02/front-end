@@ -6,22 +6,21 @@
   "layout": {
     "header": {
       "logo": "Centro de Aprendizaje"
-    },
-    "menu": {
-      "dashboard": "Panel de Control",
-      "courses": "Cursos",
-      "students": "Estudiantes",
-      "settings": "Configuración"
     }
   },
   "common": {
     "selectLanguage": "Seleccionar Idioma",
-    "submit": "Enviar",
-    "button1": "Botón 1",
-    "button2": "Botón 2",
-    "button3": "Botón 3"
+    "submit": "Enviar"
   },
   "tutorial": {
+    "list": {
+      "title": "Tutoriales",
+      "createButton": "Crear Nuevo Tutorial"
+    },
+    "create": {
+      "title": "Crear Nuevo Tutorial",
+      "description": "Completa el formulario a continuación para crear un nuevo tutorial"
+    },
     "form": {
       "basicInfo": "Información Básica",
       "details": "Detalles",
@@ -35,37 +34,9 @@
       "uploadFile": "Subir Archivo",
       "tags": "Etiquetas",
       "published": "Publicado",
-      "success": "¡Datos enviados! El tutorial se guardó correctamente."
-    },
-    "categories": {
-      "frontend": "Frontend",
-      "backend": "Backend",
-      "devops": "DevOps",
-      "data": "Ciencia de Datos"
-    },
-    "difficulties": {
-      "beginner": "Principiante",
-      "intermediate": "Intermedio",
-      "advanced": "Avanzado"
-    },
-    "tags": {
-      "vue": "Vue",
-      "javascript": "JavaScript",
-      "css": "CSS",
-      "html": "HTML"
+      "success": "¡Datos enviados! El tutorial se guardó correctamente.",
+      "loading": "Cargando datos del formulario..."
     }
-  },
-  "dataTable": {
-    "headers": {
-      "code": "Código",
-      "name": "Nombre",
-      "category": "Categoría",
-      "quantity": "Cantidad",
-      "price": "Precio",
-      "reviews": "Reseñas",
-      "image": "Imagen"
-    },
-    "products": "Productos"
   },
   "aria": {
     "navigation": "Navegación principal",
@@ -79,24 +50,18 @@
     "titleField": "Campo de entrada del título del tutorial",
     "categoryField": "Menú desplegable de selección de categoría",
     "difficultyGroup": "Selección de nivel de dificultad",
-    "beginnerOption": "Nivel de dificultad principiante",
-    "intermediateOption": "Nivel de dificultad intermedio",
-    "advancedOption": "Nivel de dificultad avanzado",
     "descriptionField": "Área de texto de descripción del tutorial",
     "durationField": "Campo de entrada de duración en minutos",
     "releaseDateField": "Selector de fecha de lanzamiento",
     "fileUploadField": "Campo de subida de archivos",
     "tagsField": "Menú desplegable de selección de etiquetas",
     "publishedField": "Casilla de verificación del estado de publicación",
-    "submitButton": "Enviar formulario del tutorial",
-    "refreshButton": "Actualizar tabla de productos",
-    "productsTable": "Tabla de datos de productos",
-    "productImage": "Imagen del producto",
-    "menu": {
-      "dashboard": "Navegar al panel de control",
-      "courses": "Navegar a cursos",
-      "students": "Navegar a estudiantes",
-      "settings": "Navegar a configuración"
-    }
+    "submitButton": "Enviar formulario del tutorial"
+  },
+  "notFound": {
+    "title": "¡Ups! Página No Encontrada",
+    "description": "La página que buscas no existe o ha sido movida.",
+    "goHome": "Ir al Inicio",
+    "goBack": "Volver"
   }
 }

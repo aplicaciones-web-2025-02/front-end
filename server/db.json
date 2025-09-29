@@ -1,71 +1,4 @@
 {
-  "users": [
-    {
-      "id": 1,
-      "username": "admin",
-      "email": "admin@example.com",
-      "password": "admin123",
-      "firstName": "Administrator",
-      "lastName": "System",
-      "role": "admin",
-      "avatar": "https://via.placeholder.com/100x100/007bff/ffffff?text=AD",
-      "isActive": true,
-      "createdAt": "2024-01-15T10:30:00Z",
-      "lastLogin": "2024-09-29T08:15:00Z"
-    },
-    {
-      "id": 2,
-      "username": "john_doe",
-      "email": "john.doe@example.com",
-      "password": "password123",
-      "firstName": "John",
-      "lastName": "Doe",
-      "role": "user",
-      "avatar": "https://via.placeholder.com/100x100/28a745/ffffff?text=JD",
-      "isActive": true,
-      "createdAt": "2024-02-10T14:20:00Z",
-      "lastLogin": "2024-09-28T16:45:00Z"
-    },
-    {
-      "id": 3,
-      "username": "jane_smith",
-      "email": "jane.smith@example.com",
-      "password": "securepass456",
-      "firstName": "Jane",
-      "lastName": "Smith",
-      "role": "user",
-      "avatar": "https://via.placeholder.com/100x100/dc3545/ffffff?text=JS",
-      "isActive": true,
-      "createdAt": "2024-03-05T09:10:00Z",
-      "lastLogin": "2024-09-29T12:30:00Z"
-    },
-    {
-      "id": 4,
-      "username": "mike_johnson",
-      "email": "mike.johnson@example.com",
-      "password": "mypassword789",
-      "firstName": "Mike",
-      "lastName": "Johnson",
-      "role": "moderator",
-      "avatar": "https://via.placeholder.com/100x100/ffc107/000000?text=MJ",
-      "isActive": false,
-      "createdAt": "2024-01-28T11:45:00Z",
-      "lastLogin": "2024-09-15T20:10:00Z"
-    },
-    {
-      "id": 5,
-      "username": "sarah_connor",
-      "email": "sarah.connor@example.com",
-      "password": "terminator2024",
-      "firstName": "Sarah",
-      "lastName": "Connor",
-      "role": "user",
-      "avatar": "https://via.placeholder.com/100x100/6f42c1/ffffff?text=SC",
-      "isActive": true,
-      "createdAt": "2024-04-12T15:30:00Z",
-      "lastLogin": "2024-09-29T07:20:00Z"
-    }
-  ],
   "tutorials": [
     {
       "id": 1,
@@ -612,124 +545,136 @@
     {
       "id": 1,
       "name": "Frontend",
-      "description": "Frontend development technologies and frameworks",
-      "color": "#4fc08d",
-      "icon": "pi pi-desktop"
+      "value": "Frontend"
     },
     {
       "id": 2,
       "name": "Backend",
-      "description": "Server-side development and APIs",
-      "color": "#339933",
-      "icon": "pi pi-server"
+      "value": "Backend"
     },
     {
       "id": 3,
       "name": "Programming",
-      "description": "Programming languages and concepts",
-      "color": "#f7df1e",
-      "icon": "pi pi-code"
+      "value": "Programming"
     },
     {
       "id": 4,
       "name": "DevOps",
-      "description": "Development operations and deployment",
-      "color": "#2496ed",
-      "icon": "pi pi-cog"
+      "value": "DevOps"
     },
     {
       "id": 5,
       "name": "Data Science",
-      "description": "Data analysis and machine learning",
-      "color": "#3776ab",
-      "icon": "pi pi-chart-bar"
+      "value": "Data Science"
     },
     {
       "id": 6,
       "name": "Mobile",
-      "description": "Mobile app development for iOS and Android",
-      "color": "#25d366",
-      "icon": "pi pi-mobile"
+      "value": "Mobile"
     },
     {
       "id": 7,
       "name": "AI/ML",
-      "description": "Artificial Intelligence and Machine Learning",
-      "color": "#ff6b6b",
-      "icon": "pi pi-bolt"
+      "value": "AI/ML"
     },
     {
       "id": 8,
       "name": "Cybersecurity",
-      "description": "Security and ethical hacking",
-      "color": "#495057",
-      "icon": "pi pi-shield"
+      "value": "Cybersecurity"
     }
   ],
-  "sessions": [
+  "difficulties": [
     {
       "id": 1,
-      "userId": 1,
-      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwibmFtZSI6IkFkbWluaXN0cmF0b3IiLCJpYXQiOjE3Mjc1OTM3MDB9.example",
-      "expiresAt": "2024-10-29T08:15:00Z",
-      "createdAt": "2024-09-29T08:15:00Z",
-      "isActive": true
+      "name": "Beginner",
+      "value": "Beginner"
     },
     {
       "id": 2,
-      "userId": 3,
-      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIzIiwibmFtZSI6IkphbmUgU21pdGgiLCJpYXQiOjE3Mjc1OTU0MDB9.example",
-      "expiresAt": "2024-10-29T12:30:00Z",
-      "createdAt": "2024-09-29T12:30:00Z",
-      "isActive": true
-    }
-  ],
-  "enrollments": [
-    {
-      "id": 1,
-      "userId": 2,
-      "tutorialId": 1,
-      "enrolledAt": "2024-09-10T10:00:00Z",
-      "progress": 75,
-      "completed": false,
-      "rating": null
-    },
-    {
-      "id": 2,
-      "userId": 2,
-      "tutorialId": 3,
-      "enrolledAt": "2024-09-15T14:30:00Z",
-      "progress": 100,
-      "completed": true,
-      "rating": 5,
-      "completedAt": "2024-09-25T16:45:00Z"
+      "name": "Intermediate",
+      "value": "Intermediate"
     },
     {
       "id": 3,
-      "userId": 3,
-      "tutorialId": 1,
-      "enrolledAt": "2024-09-20T09:15:00Z",
-      "progress": 25,
-      "completed": false,
-      "rating": null
+      "name": "Advanced",
+      "value": "Advanced"
+    }
+  ],
+  "tags": [
+    {
+      "id": 1,
+      "name": "Vue.js",
+      "value": "vue"
+    },
+    {
+      "id": 2,
+      "name": "JavaScript",
+      "value": "javascript"
+    },
+    {
+      "id": 3,
+      "name": "CSS",
+      "value": "css"
     },
     {
       "id": 4,
-      "userId": 3,
-      "tutorialId": 2,
-      "enrolledAt": "2024-09-22T11:20:00Z",
-      "progress": 50,
-      "completed": false,
-      "rating": null
+      "name": "HTML",
+      "value": "html"
     },
     {
       "id": 5,
-      "userId": 5,
-      "tutorialId": 8,
-      "enrolledAt": "2024-09-28T13:10:00Z",
-      "progress": 10,
-      "completed": false,
-      "rating": null
+      "name": "React",
+      "value": "react"
+    },
+    {
+      "id": 6,
+      "name": "Node.js",
+      "value": "nodejs"
+    },
+    {
+      "id": 7,
+      "name": "Python",
+      "value": "python"
+    },
+    {
+      "id": 8,
+      "name": "TypeScript",
+      "value": "typescript"
+    },
+    {
+      "id": 9,
+      "name": "Express",
+      "value": "express"
+    },
+    {
+      "id": 10,
+      "name": "MongoDB",
+      "value": "mongodb"
+    },
+    {
+      "id": 11,
+      "name": "API",
+      "value": "api"
+    },
+    {
+      "id": 12,
+      "name": "Frontend",
+      "value": "frontend"
+    },
+    {
+      "id": 13,
+      "name": "Backend",
+      "value": "backend"
+    },
+    {
+      "id": 14,
+      "name": "Docker",
+      "value": "docker"
+    },
+    {
+      "id": 15,
+      "name": "AWS",
+      "value": "aws"
     }
   ]
 }

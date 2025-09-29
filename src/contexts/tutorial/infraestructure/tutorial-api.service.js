@@ -1,21 +1,30 @@
 ﻿import axios from 'axios'
 
+const BASE_URL = 'http://localhost:3000'
+
 export class TutorialApiService {
   async GetAll() {
-    const response = await axios.get('http://localhost:3000/tutorials')
-
-    return response //array
+    const response = await axios.get(`${BASE_URL}/tutorials`)
+    return response.data
   }
+
   async GetById(id) {
-    const response = await axios.get('http://localhost:3000/tutorials/' + id)
+    const response = await axios.get(`${BASE_URL}/tutorials/${id}`)
+    return response.data
+  }
 
-    return response
-  } //objeto
+  async GetCategories() {
+    const response = await axios.get(`${BASE_URL}/categories`)
+    return response.data
+  }
+
+  async GetDifficulties() {
+    const response = await axios.get(`${BASE_URL}/difficulties`)
+    return response.data
+  }
+
+  async GetTags() {
+    const response = await axios.get(`${BASE_URL}/tags`)
+    return response.data
+  }
 }
-
-//PascalCase
-//camelCase
-//keebab-case
-
-//async func1() 30 min
-//func2()

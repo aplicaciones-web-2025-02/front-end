@@ -28,6 +28,22 @@ input[type='radio'] {
   width: auto;
   margin-right: 6px;
 }
+.difficulty-options {
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+}
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.radio-option label {
+  flex: none;
+  text-align: left;
+  margin-right: 0;
+  font-weight: normal;
+}
 </style>
 <template>
   <div>
@@ -48,41 +64,26 @@ input[type='radio'] {
       <label for="category">{{ $t('tutorial.form.category') }}</label>
       <div class="form-field">
         <select id="category" v-model="localCategory" :aria-label="$t('aria.categoryField')">
-          <option value="frontend">{{ $t('tutorial.categories.frontend') }}</option>
-          <option value="backend">{{ $t('tutorial.categories.backend') }}</option>
-          <option value="devops">{{ $t('tutorial.categories.devops') }}</option>
-          <option value="data">{{ $t('tutorial.categories.data') }}</option>
+          <option v-for="cat in categories" :key="cat.id" :value="cat.value">
+            {{ cat.name }}
+          </option>
         </select>
       </div>
     </div>
     <div class="form-row">
       <fieldset :aria-label="$t('aria.difficultyGroup')">
         <legend>{{ $t('tutorial.form.difficulty') }}</legend>
-        <div class="form-field" style="flex-direction: row; gap: 1rem; align-items: center">
-          <input
-            type="radio"
-            id="beginner"
-            value="beginner"
-            v-model="localDifficulty"
-            :aria-label="$t('aria.beginnerOption')"
-          />
-          <label for="beginner">{{ $t('tutorial.difficulties.beginner') }}</label>
-          <input
-            type="radio"
-            id="intermediate"
-            value="intermediate"
-            v-model="localDifficulty"
-            :aria-label="$t('aria.intermediateOption')"
-          />
-          <label for="intermediate">{{ $t('tutorial.difficulties.intermediate') }}</label>
-          <input
-            type="radio"
-            id="advanced"
-            value="advanced"
-            v-model="localDifficulty"
-            :aria-label="$t('aria.advancedOption')"
-          />
-          <label for="advanced">{{ $t('tutorial.difficulties.advanced') }}</label>
+        <div class="form-field difficulty-options">
+          <div v-for="diff in difficulties" :key="diff.id" class="radio-option">
+            <input
+              type="radio"
+              :id="diff.value.toLowerCase()"
+              :value="diff.value"
+              v-model="localDifficulty"
+              :aria-label="$t('aria.difficultyOption', { difficulty: diff.name })"
+            />
+            <label :for="diff.value.toLowerCase()">{{ diff.name }}</label>
+          </div>
         </div>
       </fieldset>
     </div>
@@ -90,13 +91,19 @@ input[type='radio'] {
 </template>
 
 <script setup>
-import { ref, watch, toRefs } from 'vue'
+import { ref, watch, toRefs, inject } from 'vue'
+
 const props = defineProps({
   title: String,
   category: String,
   difficulty: String,
 })
+
 const emits = defineEmits(['update:title', 'update:category', 'update:difficulty'])
+
+const categories = inject('categories', [])
+const difficulties = inject('difficulties', [])
+
 const { title, category, difficulty } = toRefs(props)
 const localTitle = ref(title.value)
 const localCategory = ref(category.value)

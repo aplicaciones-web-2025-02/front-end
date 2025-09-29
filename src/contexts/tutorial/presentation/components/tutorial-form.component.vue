@@ -1,20 +1,58 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted, provide } from 'vue'
 import TutorialFormBasicInfo from './tutorial-form-basic-info.component.vue'
 import TutorialFormDetails from './tutorial-form-details.component.vue'
 import TutorialFormOptions from './tutorial-form-options.component.vue'
+import { TutorialApiService } from '../../infraestructure/tutorial-api.service.js'
+
+const tutorialService = new TutorialApiService()
 
 const title = ref('')
-const category = ref('frontend')
-const difficulty = ref('beginner')
+const category = ref('')
+const difficulty = ref('')
 const description = ref('')
 const duration = ref(0)
 const releaseDate = ref('')
 const tags = ref([])
 const published = ref(false)
 const submitted = ref(false)
+const isLoading = ref(false)
 
 const tutorialFile = ref(null)
+
+const categories = ref([])
+const difficulties = ref([])
+const availableTags = ref([])
+
+provide('categories', categories)
+provide('difficulties', difficulties)
+provide('availableTags', availableTags)
+
+const loadReferenceData = async () => {
+  try {
+    isLoading.value = true
+    const [categoriesData, difficultiesData, tagsData] = await Promise.all([
+      tutorialService.GetCategories(),
+      tutorialService.GetDifficulties(),
+      tutorialService.GetTags(),
+    ])
+
+    categories.value = categoriesData
+    difficulties.value = difficultiesData
+    availableTags.value = tagsData
+
+    if (categories.value.length > 0) {
+      category.value = categories.value[0].value
+    }
+    if (difficulties.value.length > 0) {
+      difficulty.value = difficulties.value[0].value
+    }
+  } catch (error) {
+    console.error('Error loading reference data:', error)
+  } finally {
+    isLoading.value = false
+  }
+}
 
 const submitForm = () => {
   submitted.value = true
@@ -31,10 +69,17 @@ const submitForm = () => {
   }
   alert('Tutorial data submitted!\n' + JSON.stringify(tutorialData, null, 2))
 }
+
+onMounted(() => {
+  loadReferenceData()
+})
 </script>
 
 <template>
-  <form @submit.prevent="submitForm" role="form" :aria-label="$t('aria.mainForm')">
+  <div v-if="isLoading" class="loading">
+    <p>{{ $t('tutorial.form.loading') }}</p>
+  </div>
+  <form v-else @submit.prevent="submitForm" role="form" :aria-label="$t('aria.mainForm')">
     <h3 role="heading" aria-level="3">{{ $t('tutorial.form.basicInfo') }}</h3>
 
     <section :aria-label="$t('aria.basicInfoSection')">
@@ -62,12 +107,20 @@ const submitForm = () => {
       <TutorialFormOptions v-model:tags="tags" v-model:published="published" />
     </section>
 
-    <button type="submit" :aria-label="$t('aria.submitButton')">{{ $t('common.submit') }}</button>
+    <button type="submit" :disabled="isLoading" :aria-label="$t('aria.submitButton')">
+      {{ $t('common.submit') }}
+    </button>
     <p v-if="submitted" role="alert" aria-live="polite">{{ $t('tutorial.form.success') }}</p>
   </form>
 </template>
 
 <style scoped>
+.loading {
+  text-align: center;
+  padding: 20px;
+  font-style: italic;
+}
+
 button[type='submit'] {
   margin-top: 24px;
   padding: 12px 24px;
@@ -79,7 +132,12 @@ button[type='submit'] {
   cursor: pointer;
 }
 
-button[type='submit']:hover {
+button[type='submit']:hover:not(:disabled) {
   background-color: #0056b3;
+}
+
+button[type='submit']:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
 }
 </style>

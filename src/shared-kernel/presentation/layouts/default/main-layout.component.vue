@@ -17,7 +17,7 @@ import LeftPanel from './left-panel.component.vue'
 .main-layout {
   display: grid;
   grid-template-rows: auto 1fr;
-  grid-template-columns: 250px 1fr;
+  grid-template-columns: 150px 1fr;
   grid-template-areas:
     'header header'
     'left content';

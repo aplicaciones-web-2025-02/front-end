@@ -28,6 +28,10 @@ input[type='checkbox'] {
   width: auto;
   margin-right: 6px;
 }
+.checkbox-field {
+  flex-direction: row;
+  align-items: center;
+}
 </style>
 <template>
   <div>
@@ -41,16 +45,15 @@ input[type='checkbox'] {
           :aria-label="$t('aria.tagsField')"
           aria-multiselectable="true"
         >
-          <option value="vue">{{ $t('tutorial.tags.vue') }}</option>
-          <option value="javascript">{{ $t('tutorial.tags.javascript') }}</option>
-          <option value="css">{{ $t('tutorial.tags.css') }}</option>
-          <option value="html">{{ $t('tutorial.tags.html') }}</option>
+          <option v-for="tag in availableTags" :key="tag.id" :value="tag.value">
+            {{ tag.name }}
+          </option>
         </select>
       </div>
     </div>
     <div class="form-row">
       <label for="published">{{ $t('tutorial.form.published') }}</label>
-      <div class="form-field" style="flex-direction: row; align-items: center">
+      <div class="form-field checkbox-field">
         <input
           type="checkbox"
           id="published"
@@ -64,14 +67,19 @@ input[type='checkbox'] {
 </template>
 
 <script setup>
-import { ref, watch, toRefs } from 'vue'
+import { ref, watch, toRefs, inject } from 'vue'
+
 const props = defineProps({
   tags: Array,
   published: Boolean,
 })
+
 const emits = defineEmits(['update:tags', 'update:published'])
+
+const availableTags = inject('availableTags', [])
+
 const { tags, published } = toRefs(props)
-const localTags = ref(tags.value)
+const localTags = ref(tags.value || [])
 const localPublished = ref(published.value)
 
 watch(localTags, (val) => emits('update:tags', val))

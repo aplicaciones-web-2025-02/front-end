@@ -6,22 +6,21 @@
   "layout": {
     "header": {
       "logo": "Centre d'Apprentissage"
-    },
-    "menu": {
-      "dashboard": "Tableau de Bord",
-      "courses": "Cours",
-      "students": "Étudiants",
-      "settings": "Paramètres"
     }
   },
   "common": {
     "selectLanguage": "Sélectionner la Langue",
-    "submit": "Soumettre",
-    "button1": "Bouton 1",
-    "button2": "Bouton 2",
-    "button3": "Bouton 3"
+    "submit": "Soumettre"
   },
   "tutorial": {
+    "list": {
+      "title": "Tutoriels",
+      "createButton": "Créer un Nouveau Tutoriel"
+    },
+    "create": {
+      "title": "Créer un Nouveau Tutoriel",
+      "description": "Remplissez le formulaire ci-dessous pour créer un nouveau tutoriel"
+    },
     "form": {
       "basicInfo": "Informations de Base",
       "details": "Détails",
@@ -35,37 +34,9 @@
       "uploadFile": "Télécharger un Fichier",
       "tags": "Étiquettes",
       "published": "Publié",
-      "success": "Données envoyées ! Le tutoriel a été sauvegardé avec succès."
-    },
-    "categories": {
-      "frontend": "Frontend",
-      "backend": "Backend",
-      "devops": "DevOps",
-      "data": "Science des Données"
-    },
-    "difficulties": {
-      "beginner": "Débutant",
-      "intermediate": "Intermédiaire",
-      "advanced": "Avancé"
-    },
-    "tags": {
-      "vue": "Vue",
-      "javascript": "JavaScript",
-      "css": "CSS",
-      "html": "HTML"
+      "success": "Données envoyées ! Le tutoriel a été sauvegardé avec succès.",
+      "loading": "Chargement des données du formulaire..."
     }
-  },
-  "dataTable": {
-    "headers": {
-      "code": "Code",
-      "name": "Nom",
-      "category": "Catégorie",
-      "quantity": "Quantité",
-      "price": "Prix",
-      "reviews": "Avis",
-      "image": "Image"
-    },
-    "products": "Produits"
   },
   "aria": {
     "navigation": "Navigation principale",
@@ -79,24 +50,18 @@
     "titleField": "Champ de saisie du titre du tutoriel",
     "categoryField": "Menu déroulant de sélection de catégorie",
     "difficultyGroup": "Sélection du niveau de difficulté",
-    "beginnerOption": "Niveau de difficulté débutant",
-    "intermediateOption": "Niveau de difficulté intermédiaire",
-    "advancedOption": "Niveau de difficulté avancé",
     "descriptionField": "Zone de texte de description du tutoriel",
     "durationField": "Champ de saisie de la durée en minutes",
     "releaseDateField": "Sélecteur de date de publication",
     "fileUploadField": "Champ de téléchargement de fichier",
     "tagsField": "Menu déroulant de sélection d'étiquettes",
     "publishedField": "Case à cocher du statut de publication",
-    "submitButton": "Soumettre le formulaire du tutoriel",
-    "refreshButton": "Actualiser le tableau des produits",
-    "productsTable": "Tableau de données des produits",
-    "productImage": "Image du produit",
-    "menu": {
-      "dashboard": "Naviguer vers le tableau de bord",
-      "courses": "Naviguer vers les cours",
-      "students": "Naviguer vers les étudiants",
-      "settings": "Naviguer vers les paramètres"
-    }
+    "submitButton": "Soumettre le formulaire du tutoriel"
+  },
+  "notFound": {
+    "title": "Oups ! Page Introuvable",
+    "description": "La page que vous recherchez n'existe pas ou a été déplacée.",
+    "goHome": "Accueil",
+    "goBack": "Retour"
   }
 }

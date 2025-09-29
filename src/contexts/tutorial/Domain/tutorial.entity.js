@@ -15,7 +15,7 @@
     rating = null,
     enrollments = 0,
     createdAt = '',
-    updatedAt = ''
+    updatedAt = '',
   }) {
     this.id = id
     this.title = title

@@ -2,6 +2,7 @@
 import { TutorialApiService } from '@/contexts/tutorial/infraestructure/tutorial-api.service.js'
 import { TutorialAssembler } from '@/contexts/tutorial/Domain/tutorial.assembler.js'
 import { ref, onBeforeMount } from 'vue'
+import { useRouter } from 'vue-router'
 
 const tutorials = ref([])
 const tutorialService = new TutorialApiService()
@@ -28,6 +29,8 @@ const onPage = (event) => {
   rows.value = event.rows
 }
 
+const navigateToCreate = () => {}
+
 onBeforeMount(async () => {
   await GetAllTutorial()
 })
@@ -35,7 +38,16 @@ onBeforeMount(async () => {
 
 <template>
   <div class="tutorial-list">
-    <h1 class="page-title">Tutorials</h1>
+    <div class="page-header">
+      <h1 class="page-title">{{ $t('tutorial.list.title') }}</h1>
+      <pv-button
+        :label="$t('tutorial.list.createButton')"
+        icon="pi pi-plus"
+        class="create-button"
+        @click="navigateToCreate"
+        severity="success"
+      />
+    </div>
 
     <pv-data-table
       :value="tutorials"
@@ -48,17 +60,17 @@ onBeforeMount(async () => {
       :rowsPerPageOptions="[5, 10, 20, 50]"
       paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
       currentPageReportTemplate="Showing {first} to {last} of {totalRecords} tutorials"
-      tableStyle="min-width: 50rem"
+      class="tutorial-table"
       stripedRows
       responsiveLayout="scroll"
     >
-      <pv-column field="id" header="ID" sortable style="width: 80px">
+      <pv-column field="id" header="ID" sortable class="col-id">
         <template #body="slotProps">
           <span class="tutorial-id">#{{ slotProps.data.id }}</span>
         </template>
       </pv-column>
 
-      <pv-column field="title" header="Title" sortable style="min-width: 200px">
+      <pv-column field="title" header="Title" sortable class="col-title">
         <template #body="slotProps">
           <div class="tutorial-title">
             <strong>{{ slotProps.data.title }}</strong>
@@ -66,39 +78,38 @@ onBeforeMount(async () => {
         </template>
       </pv-column>
 
-      <pv-column field="category" header="Category" sortable style="width: 120px">
+      <pv-column field="category" header="Category" sortable class="col-category">
         <template #body="slotProps">
           <span>{{ slotProps.data.category }}</span>
         </template>
       </pv-column>
 
-      <pv-column field="difficulty" header="Difficulty" sortable style="width: 120px">
+      <pv-column field="difficulty" header="Difficulty" sortable class="col-difficulty">
         <template #body="slotProps">
           <span>{{ slotProps.data.difficulty }}</span>
         </template>
       </pv-column>
 
-      <pv-column field="duration" header="Duration" sortable style="width: 100px">
+      <pv-column field="duration" header="Duration" sortable class="col-duration">
         <template #body="slotProps">
           <span class="duration">{{ slotProps.data.duration }}min</span>
         </template>
       </pv-column>
 
-      <pv-column field="rating" header="Rating" sortable style="width: 100px">
+      <pv-column field="rating" header="Rating" sortable class="col-rating">
         <template #body="slotProps">
           <div class="rating">
-            <i class="pi pi-star-fill text-yellow-400"></i>
-            <span class="ml-1">{{ slotProps.data.rating || 'N/A' }}</span>
+            <i class="pi pi-star-fill star-icon"></i>
+            <span class="rating-text">{{ slotProps.data.rating || 'N/A' }}</span>
           </div>
         </template>
       </pv-column>
 
-      <pv-column field="enrollments" header="Students" sortable style="width: 100px">
+      <pv-column field="enrollments" header="Students" sortable class="col-enrollments">
         <template #body="slotProps">
           <span class="enrollments">{{ slotProps.data.enrollments || 0 }}</span>
         </template>
       </pv-column>
-
     </pv-data-table>
   </div>
 </template>
@@ -108,11 +119,25 @@ onBeforeMount(async () => {
   padding: 1rem;
 }
 
-.page-title {
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.page-title {
   color: var(--color-heading);
   font-size: 2rem;
   font-weight: 600;
+  margin: 0;
+}
+
+.create-button {
+  border-radius: 6px;
+  font-weight: 500;
 }
 
 .tutorial-id {
@@ -138,6 +163,46 @@ onBeforeMount(async () => {
 .enrollments {
   font-weight: 500;
   color: var(--color-text);
+}
+
+:deep(.col-id) {
+  width: 80px;
+}
+
+:deep(.col-title) {
+  max-width: 100px;
+}
+
+:deep(.col-category) {
+  width: 120px;
+}
+
+:deep(.col-difficulty) {
+  width: 120px;
+}
+
+:deep(.col-duration) {
+  width: 100px;
+}
+
+:deep(.col-rating) {
+  width: 100px;
+}
+
+:deep(.col-enrollments) {
+  width: 100px;
+}
+
+.star-icon {
+  color: #fbbf24;
+}
+
+.rating-text {
+  margin-left: 0.25rem;
+}
+
+:deep(.tutorial-table table) {
+  min-width: 50rem;
 }
 
 @media (max-width: 768px) {
