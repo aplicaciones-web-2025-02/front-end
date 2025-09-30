@@ -2,14 +2,20 @@
 import AboutPage from '@/contexts/public/pages/about-page.page.vue'
 import NotFoundComponent from '@/shared-kernel/presentation/ui/components/not-found.component.vue'
 import TutorialList from '@/contexts/tutorial/presentation/pages/tutorial-list.page.vue'
-import TutorialCreate from '@/contexts/tutorial/presentation/pages/tutorial-create.page.vue'
+import TutorialCreateOrUpdate from '@/contexts/tutorial/presentation/pages/tutorial-create-or-update.page.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
   { path: '/', component: HomePage },
   { path: '/about', component: AboutPage, exact: true },
   { path: '/tutorials', component: TutorialList, exact: true },
-  { path: '/tutorials/create', component: TutorialCreate, exact: true },
+  { path: '/tutorials/create', component: TutorialCreateOrUpdate, exact: true },
+  {
+    path: '/tutorials/edit/:id',
+    component: TutorialCreateOrUpdate,
+    exact: true,
+    name: 'editTutorial',
+  },
   { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFoundComponent },
 ]
 

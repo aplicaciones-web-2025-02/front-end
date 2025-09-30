@@ -12,6 +12,7 @@ const loading = ref(false)
 const totalRecords = ref(0)
 const rows = ref(10)
 const first = ref(0)
+const showModal = ref(false)
 
 const GetAllTutorial = async () => {
   loading.value = true
@@ -32,7 +33,17 @@ const onPage = (event) => {
 }
 
 const navigateToCreate = () => {
-  router.push('/tutorials/create')
+  showModal.value = true
+  // router.push('/tutorials/create')
+}
+
+const deleteTutorial = async (id) => {
+  const response = await tutorialService.Delete(id)
+
+  if (response.status === 200) {
+    alert('tutorial deleted')
+    await GetAllTutorial()
+  }
 }
 
 onBeforeMount(async () => {
@@ -114,8 +125,48 @@ onBeforeMount(async () => {
           <span class="enrollments">{{ slotProps.data.enrollments || 0 }}</span>
         </template>
       </pv-column>
+      <pv-column header="Actions" sortable class="col-actions">
+        <template #body="slotProps">
+          <RouterLink :to="{ name: 'editTutorial', params: { id: slotProps.data.id } }">
+            Edit</RouterLink
+          >
+          <pv-button label="Delete" @click="deleteTutorial(slotProps.data.id)" />
+        </template>
+      </pv-column>
     </pv-data-table>
   </div>
+
+  <template>
+    <div class="card flex justify-center">
+      <pv-dialog
+        v-model:visible="showModal"
+        modal
+        header="Edit Tutorial"
+        :style="{ width: '25rem' }"
+      >
+        <span class="text-surface-500 dark:text-surface-400 block mb-8"
+          >Update your information.</span
+        >
+        <div class="flex items-center gap-4 mb-4">
+          <label for="username" class="font-semibold w-24">Username</label>
+          <pv-input-text id="username" class="flex-auto" autocomplete="off" />
+        </div>
+        <div class="flex items-center gap-4 mb-8">
+          <label for="email" class="font-semibold w-24">Email</label>
+          <pv-input-text id="email" class="flex-auto" autocomplete="off" />
+        </div>
+        <div class="flex justify-end gap-2">
+          <pv-button
+            type="button"
+            label="Cancel"
+            severity="secondary"
+            @click="visible = false"
+          ></pv-button>
+          <pv-button type="button" label="Save" @click="visible = false"></pv-button>
+        </div>
+      </pv-dialog>
+    </div>
+  </template>
 </template>
 
 <style scoped>

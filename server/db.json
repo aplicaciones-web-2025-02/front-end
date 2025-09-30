@@ -1,38 +1,15 @@
 {
   "tutorials": [
     {
-      "id": "60c3",
-      "title": "New Tutorial Example",
-      "description": "This is a comprehensive tutorial about modern web development",
+      "id": "e8bd",
+      "title": "Tutorial 1 updated 21:12",
       "category": "Frontend",
-      "difficulty": "Intermediate",
-      "duration": 120,
-      "authorId": 1,
-      "content": "Detailed content about the tutorial topic",
-      "tags": [
-        "javascript",
-        "vue",
-        "frontend"
-      ],
-      "imageUrl": "https://via.placeholder.com/300x200/4fc08d/ffffff?text=New+Tutorial",
-      "videoUrl": "https://example.com/videos/new-tutorial.mp4",
-      "isPublished": true,
-      "rating": 0,
-      "enrollments": 0,
-      "releaseDate": "2024-09-29",
-      "published": true,
-      "tutorialFile": null
-    },
-    {
-      "id": "59ea",
-      "title": "test",
-      "category": "",
-      "difficulty": "",
-      "description": "test",
-      "duration": 3,
-      "releaseDate": "2025-09-29",
+      "difficulty": "Beginner",
+      "description": "",
+      "duration": 0,
+      "releaseDate": "",
       "tags": [],
-      "published": true,
+      "published": false,
       "tutorialFile": null
     }
   ],

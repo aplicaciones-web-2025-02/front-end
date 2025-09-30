@@ -12,6 +12,8 @@ import ColumnGroup from 'primevue/columngroup'
 import Row from 'primevue/row'
 import Rating from 'primevue/rating'
 import Dropdown from 'primevue/dropdown'
+import Dialog from 'primevue/dialog'
+import InputText from 'primevue/inputtext'
 
 export const themes = {
   aura: Aura,
@@ -35,4 +37,6 @@ export function setupPrimeVue(app, selectedTheme = 'aura') {
   app.component('pv-row', Row)
   app.component('pv-rating', Rating)
   app.component('pv-dropdown', Dropdown)
+  app.component('pv-dialog', Dialog)
+  app.component('pv-input-text', InputText)
 }

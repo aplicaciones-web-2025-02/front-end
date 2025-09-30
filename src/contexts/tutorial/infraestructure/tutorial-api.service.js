@@ -17,4 +17,14 @@ export class TutorialApiService {
     const response = await axios.post(`${BASE_URL}/tutorials`, tutorial)
     return response
   }
+
+  async Update(id, tutorial) {
+    const response = await axios.patch(`${BASE_URL}/tutorials/${id}`, tutorial)
+    return response
+  }
+
+  async Delete(id) {
+    const response = await axios.delete(`${BASE_URL}/tutorials/${id}`)
+    return response
+  }
 }

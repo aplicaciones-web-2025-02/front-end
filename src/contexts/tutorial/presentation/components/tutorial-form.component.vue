@@ -4,8 +4,20 @@ import TutorialFormBasicInfo from './tutorial-form-basic-info.component.vue'
 import TutorialFormDetails from './tutorial-form-details.component.vue'
 import TutorialFormOptions from './tutorial-form-options.component.vue'
 import { TutorialApiService } from '../../infraestructure/tutorial-api.service.js'
+import {
+  CategoryApiService,
+  DifficultyApiService,
+  TagApiService,
+} from '@/contexts/tutorial/infraestructure/index.js'
 
+import { useRoute, useRouter } from 'vue-router'
+
+const route = useRoute()
+const router = useRouter()
 const tutorialService = new TutorialApiService()
+const categoryService = new CategoryApiService()
+const difficultyService = new DifficultyApiService()
+const tagApiService = new TagApiService()
 
 const title = ref('')
 const category = ref('')
@@ -17,6 +29,8 @@ const tags = ref([])
 const published = ref(false)
 const submitted = ref(false)
 const isLoading = ref(false)
+const tutorialId = ref()
+const isEdit = ref(false)
 
 const tutorialFile = ref(null)
 
@@ -32,9 +46,9 @@ const loadReferenceData = async () => {
   try {
     isLoading.value = true
     const [categoriesData, difficultiesData, tagsData] = await Promise.all([
-      tutorialService.GetCategories(),
-      tutorialService.GetDifficulties(),
-      tutorialService.GetTags(),
+      categoryService.GetAll(),
+      difficultyService.GetAll(),
+      tagApiService.GetAll(),
     ])
 
     categories.value = categoriesData
@@ -67,10 +81,19 @@ const submitForm = async () => {
     published: published.value,
     tutorialFile: tutorialFile.value ? tutorialFile.value.name : null,
   }
-  const response = await tutorialService.Create(tutorialData)
+  let response
 
-  if (response.status === 201) {
-    alert('tutorial added successfully.')
+  if (tutorialId.value != null) {
+    response = await tutorialService.Update(tutorialId.value, tutorialData)
+  } else {
+    response = await tutorialService.Create(tutorialData)
+  }
+
+  if (response.status === 201 || response.status === 200) {
+    let actionMessage = isEdit.value ? 'edited' : 'added'
+
+    alert('tutorial ' + actionMessage + ' successfully.')
+    router.push('/tutorials')
   } else {
     console.error('error...')
     alert('error creating tutorial data')
@@ -79,7 +102,20 @@ const submitForm = async () => {
 
 onMounted(() => {
   loadReferenceData()
+  tutorialId.value = route.params.id
+  if (tutorialId.value != null) {
+    GetTutorialById()
+    isEdit.value = true
+  }
 })
+
+const GetTutorialById = async () => {
+  const respondGet = await tutorialService.GetById(route.params.id)
+  title.value = respondGet.data.title
+  category.value = respondGet.data.category
+  difficulty.value = respondGet.data.difficulty
+  description.value = respondGet.data.description
+}
 </script>
 
 <template>
@@ -87,7 +123,7 @@ onMounted(() => {
     <p>{{ $t('tutorial.form.loading') }}</p>
   </div>
   <form v-else @submit.prevent="submitForm" role="form" :aria-label="$t('aria.mainForm')">
-    <h3 role="heading" aria-level="3">{{ $t('tutorial.form.basicInfo') }}</h3>
+    <h3 role="heading" aria-level="3">$t('tutorial.form.basicInfo')</h3>
 
     <section :aria-label="$t('aria.basicInfoSection')">
       <TutorialFormBasicInfo
