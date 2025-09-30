@@ -1,10 +1,8 @@
-import axios from 'axios'
-
-const BASE_URL = 'http://localhost:3000'
+import { http } from '../../../shared-kernel/infrastructure/http/http.js'
 
 export class CategoryApiService {
   async GetAll() {
-    const response = await axios.get(`${BASE_URL}/categories`)
+    const response = await http.get('/categories')
     return response.data
   }
 }

@@ -1,10 +1,8 @@
-import axios from 'axios'
-
-const BASE_URL = 'http://localhost:3000'
+import { http } from '../../../shared-kernel/infrastructure/http/http.js'
 
 export class TagApiService {
   async GetAll() {
-    const response = await axios.get(`${BASE_URL}/tags`)
+    const response = await http.get('/tags')
     return response.data
   }
 }

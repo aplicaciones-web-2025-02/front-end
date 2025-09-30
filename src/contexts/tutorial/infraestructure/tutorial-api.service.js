@@ -1,30 +1,28 @@
-﻿import axios from 'axios'
-
-const BASE_URL = 'http://localhost:3000'
+﻿import { http, BASE_URL } from '../../../shared-kernel/infrastructure/http/http.js'
 
 export class TutorialApiService {
   async GetAll() {
-    const response = await axios.get(`${BASE_URL}/tutorials`)
+    const response = await http.get('/tutorials')
     return response
   }
 
   async GetById(id) {
-    const response = await axios.get(`${BASE_URL}/tutorials/${id}`)
+    const response = await http.get(`/tutorials/${id}`)
     return response
   }
 
   async Create(tutorial) {
-    const response = await axios.post(`${BASE_URL}/tutorials`, tutorial)
+    const response = await http.post('/tutorials', tutorial)
     return response
   }
 
   async Update(id, tutorial) {
-    const response = await axios.patch(`${BASE_URL}/tutorials/${id}`, tutorial)
+    const response = await http.patch(`/tutorials/${id}`, tutorial)
     return response
   }
 
   async Delete(id) {
-    const response = await axios.delete(`${BASE_URL}/tutorials/${id}`)
+    const response = await http.delete(`/tutorials/${id}`)
     return response
   }
 }
