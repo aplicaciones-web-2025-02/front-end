@@ -7,12 +7,21 @@
 
     <div class="form-container">
       <TutorialForm />
+      <pv-button label="back to list" @click="BackToList"></pv-button>
     </div>
   </div>
 </template>
 
 <script setup>
 import TutorialForm from '../components/tutorial-form.component.vue'
+
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+const BackToList = () => {
+  router.push('/tutorials')
+}
 </script>
 
 <style scoped>

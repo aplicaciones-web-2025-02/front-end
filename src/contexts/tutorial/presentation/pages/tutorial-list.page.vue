@@ -4,6 +4,8 @@ import { TutorialAssembler } from '@/contexts/tutorial/Domain/tutorial.assembler
 import { ref, onBeforeMount } from 'vue'
 import { useRouter } from 'vue-router'
 
+const router = useRouter()
+
 const tutorials = ref([])
 const tutorialService = new TutorialApiService()
 const loading = ref(false)
@@ -29,7 +31,9 @@ const onPage = (event) => {
   rows.value = event.rows
 }
 
-const navigateToCreate = () => {}
+const navigateToCreate = () => {
+  router.push('/tutorials/create')
+}
 
 onBeforeMount(async () => {
   await GetAllTutorial()

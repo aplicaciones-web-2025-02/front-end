@@ -54,7 +54,7 @@ const loadReferenceData = async () => {
   }
 }
 
-const submitForm = () => {
+const submitForm = async () => {
   submitted.value = true
   const tutorialData = {
     title: title.value,
@@ -67,7 +67,14 @@ const submitForm = () => {
     published: published.value,
     tutorialFile: tutorialFile.value ? tutorialFile.value.name : null,
   }
-  alert('Tutorial data submitted!\n' + JSON.stringify(tutorialData, null, 2))
+  const response = await tutorialService.Create(tutorialData)
+
+  if (response.status === 201) {
+    alert('tutorial added successfully.')
+  } else {
+    console.error('error...')
+    alert('error creating tutorial data')
+  }
 }
 
 onMounted(() => {
