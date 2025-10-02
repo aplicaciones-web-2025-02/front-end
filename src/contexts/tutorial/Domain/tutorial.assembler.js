@@ -7,9 +7,7 @@ export class TutorialAssembler {
       return []
     }
     const tutorialsResponse = response.data
-    return tutorialsResponse.map((tutorial) => {
-      return this.toEntityFromResource(tutorial)
-    })
+    return tutorialsResponse.map((tutorial) => this.toEntityFromResource(tutorial))
   }
 
   static toEntityFromResource(resource) {

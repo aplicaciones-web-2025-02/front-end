@@ -2,9 +2,7 @@
 import { TutorialApiService } from '@/contexts/tutorial/infraestructure/tutorial-api.service.js'
 import { TutorialAssembler } from '@/contexts/tutorial/Domain/tutorial.assembler.js'
 import { ref, onBeforeMount } from 'vue'
-import { useRouter } from 'vue-router'
 
-const router = useRouter()
 
 const tutorials = ref([])
 const tutorialService = new TutorialApiService()
@@ -14,10 +12,10 @@ const rows = ref(10)
 const first = ref(0)
 const showModal = ref(false)
 
-const GetAllTutorial = async () => {
+const getAllTutorials = async () => {
   loading.value = true
   try {
-    const response = TutorialAssembler.toEntitiesFromResponse(await tutorialService.GetAll())
+    const response = TutorialAssembler.toEntitiesFromResponse(await tutorialService.getAll())
     tutorials.value = response
     totalRecords.value = response.length
   } catch (error) {
@@ -34,20 +32,19 @@ const onPage = (event) => {
 
 const navigateToCreate = () => {
   showModal.value = true
-  // router.push('/tutorials/create')
 }
 
 const deleteTutorial = async (id) => {
-  const response = await tutorialService.Delete(id)
+  const response = await tutorialService.delete(id)
 
   if (response.status === 200) {
     alert('tutorial deleted')
-    await GetAllTutorial()
+    await getAllTutorials()
   }
 }
 
 onBeforeMount(async () => {
-  await GetAllTutorial()
+  await getAllTutorials()
 })
 </script>
 

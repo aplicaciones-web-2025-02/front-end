@@ -46,9 +46,9 @@ const loadReferenceData = async () => {
   try {
     isLoading.value = true
     const [categoriesData, difficultiesData, tagsData] = await Promise.all([
-      categoryService.GetAll(),
-      difficultyService.GetAll(),
-      tagApiService.GetAll(),
+      categoryService.getAll(),
+      difficultyService.getAll(),
+      tagApiService.getAll(),
     ])
 
     categories.value = categoriesData
@@ -84,9 +84,9 @@ const submitForm = async () => {
   let response
 
   if (tutorialId.value != null) {
-    response = await tutorialService.Update(tutorialId.value, tutorialData)
+    response = await tutorialService.update(tutorialId.value, tutorialData)
   } else {
-    response = await tutorialService.Create(tutorialData)
+    response = await tutorialService.create(tutorialData)
   }
 
   if (response.status === 201 || response.status === 200) {
@@ -104,13 +104,13 @@ onMounted(() => {
   loadReferenceData()
   tutorialId.value = route.params.id
   if (tutorialId.value != null) {
-    GetTutorialById()
+    getTutorialById()
     isEdit.value = true
   }
 })
 
-const GetTutorialById = async () => {
-  const respondGet = await tutorialService.GetById(route.params.id)
+const getTutorialById = async () => {
+  const respondGet = await tutorialService.getById(route.params.id)
   title.value = respondGet.data.title
   category.value = respondGet.data.category
   difficulty.value = respondGet.data.difficulty
