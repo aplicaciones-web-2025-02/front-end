@@ -1,4 +1,4 @@
-﻿import { Tutorial } from './Tutorial.entity'
+﻿import { Tutorial } from './tutorial.entity'
 
 export class TutorialAssembler {
   static toEntitiesFromResponse(response) {
