@@ -58,6 +58,38 @@
     "publishedField": "Case à cocher du statut de publication",
     "submitButton": "Soumettre le formulaire du tutoriel"
   },
+  "auth": {
+    "login": {
+      "title": "Se Connecter",
+      "welcome": "Bon Retour",
+      "description": "Connectez-vous à votre compte pour continuer",
+      "submit": "Se Connecter",
+      "noAccount": "Vous n'avez pas de compte ?",
+      "signupLink": "Inscrivez-vous ici"
+    },
+    "signup": {
+      "title": "Créer un Compte",
+      "welcome": "Rejoignez-Nous",
+      "description": "Créez votre compte pour commencer",
+      "submit": "Créer un Compte",
+      "hasAccount": "Vous avez déjà un compte ?",
+      "loginLink": "Connectez-vous ici"
+    },
+    "form": {
+      "username": "Nom d'Utilisateur",
+      "password": "Mot de Passe",
+      "email": "Email",
+      "firstName": "Prénom",
+      "lastName": "Nom de Famille",
+      "confirmPassword": "Confirmer le Mot de Passe",
+      "usernamePlaceholder": "Entrez votre nom d'utilisateur",
+      "passwordPlaceholder": "Entrez votre mot de passe",
+      "emailPlaceholder": "Entrez votre email",
+      "firstNamePlaceholder": "Entrez votre prénom",
+      "lastNamePlaceholder": "Entrez votre nom de famille",
+      "confirmPasswordPlaceholder": "Confirmez votre mot de passe"
+    }
+  },
   "notFound": {
     "title": "Oups ! Page Introuvable",
     "description": "La page que vous recherchez n'existe pas ou a été déplacée.",

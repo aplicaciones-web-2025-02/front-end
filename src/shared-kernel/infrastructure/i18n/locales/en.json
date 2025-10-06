@@ -56,7 +56,49 @@
     "fileUploadField": "File upload input",
     "tagsField": "Tags selection dropdown",
     "publishedField": "Published status checkbox",
-    "submitButton": "Submit tutorial form"
+    "submitButton": "Submit tutorial form",
+    "loginForm": "Login form",
+    "signupForm": "Signup form",
+    "usernameField": "Username input field",
+    "passwordField": "Password input field",
+    "emailField": "Email input field",
+    "firstNameField": "First name input field",
+    "lastNameField": "Last name input field",
+    "confirmPasswordField": "Confirm password input field",
+    "loginButton": "Login button",
+    "signupButton": "Signup button"
+  },
+  "auth": {
+    "login": {
+      "title": "Sign In",
+      "welcome": "Welcome Back",
+      "description": "Sign in to your account to continue",
+      "submit": "Sign In",
+      "noAccount": "Don't have an account?",
+      "signupLink": "Sign up here"
+    },
+    "signup": {
+      "title": "Create Account",
+      "welcome": "Join Us",
+      "description": "Create your account to get started",
+      "submit": "Create Account",
+      "hasAccount": "Already have an account?",
+      "loginLink": "Sign in here"
+    },
+    "form": {
+      "username": "Username",
+      "password": "Password",
+      "email": "Email",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "confirmPassword": "Confirm Password",
+      "usernamePlaceholder": "Enter your username",
+      "passwordPlaceholder": "Enter your password",
+      "emailPlaceholder": "Enter your email",
+      "firstNamePlaceholder": "Enter your first name",
+      "lastNamePlaceholder": "Enter your last name",
+      "confirmPasswordPlaceholder": "Confirm your password"
+    }
   },
   "notFound": {
     "title": "Oops! Page Not Found",

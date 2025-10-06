@@ -10,6 +10,12 @@
       <li role="none">
         <RouterLink to="/tutorials">Go to tutorials</RouterLink>
       </li>
+      <li role="none">
+        <RouterLink to="/login">Login</RouterLink>
+      </li>
+      <li role="none">
+        <RouterLink to="/signup">Sign Up</RouterLink>
+      </li>
     </ul>
   </aside>
 </template>

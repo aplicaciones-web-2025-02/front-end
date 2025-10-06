@@ -1,4 +1,4 @@
-<style>
+<style scoped>
 .form-row {
   display: flex;
   align-items: center;

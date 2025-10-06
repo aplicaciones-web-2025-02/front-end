@@ -58,6 +58,38 @@
     "publishedField": "Casilla de verificación del estado de publicación",
     "submitButton": "Enviar formulario del tutorial"
   },
+  "auth": {
+    "login": {
+      "title": "Iniciar Sesión",
+      "welcome": "Bienvenido de Vuelta",
+      "description": "Inicia sesión en tu cuenta para continuar",
+      "submit": "Iniciar Sesión",
+      "noAccount": "¿No tienes una cuenta?",
+      "signupLink": "Regístrate aquí"
+    },
+    "signup": {
+      "title": "Crear Cuenta",
+      "welcome": "Únete a Nosotros",
+      "description": "Crea tu cuenta para comenzar",
+      "submit": "Crear Cuenta",
+      "hasAccount": "¿Ya tienes una cuenta?",
+      "loginLink": "Inicia sesión aquí"
+    },
+    "form": {
+      "username": "Nombre de Usuario",
+      "password": "Contraseña",
+      "email": "Correo Electrónico",
+      "firstName": "Nombre",
+      "lastName": "Apellido",
+      "confirmPassword": "Confirmar Contraseña",
+      "usernamePlaceholder": "Ingresa tu nombre de usuario",
+      "passwordPlaceholder": "Ingresa tu contraseña",
+      "emailPlaceholder": "Ingresa tu correo electrónico",
+      "firstNamePlaceholder": "Ingresa tu nombre",
+      "lastNamePlaceholder": "Ingresa tu apellido",
+      "confirmPasswordPlaceholder": "Confirma tu contraseña"
+    }
+  },
   "notFound": {
     "title": "¡Ups! Página No Encontrada",
     "description": "La página que buscas no existe o ha sido movida.",
