@@ -3,6 +3,7 @@
     <div class="logo" :aria-label="$t('aria.logo')">
       {{ $t('layout.header.logo') }}
     </div>
+    <pv-button label="log out" @click="Logout" />
     <nav class="nav" role="navigation" :aria-label="$t('aria.navigation')">
       <LanguageSelector />
     </nav>
@@ -11,6 +12,14 @@
 
 <script setup lang="ts">
 import LanguageSelector from '@/shared-kernel/presentation/ui/components/language-selector.component.vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+const Logout = () => {
+  localStorage.removeItem('authToken')
+  router.push('/login')
+}
 </script>
 
 <style scoped>

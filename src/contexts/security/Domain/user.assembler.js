@@ -13,9 +13,9 @@ export class UserAssembler {
     return new User(resource)
   }
 
-  static toLoginResource(username, password) {
+  static toLoginResource(email, password) {
     return {
-      username,
+      email,
       password,
     }
   }

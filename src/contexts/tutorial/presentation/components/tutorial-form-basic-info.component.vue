@@ -52,7 +52,6 @@ input[type='radio'] {
 
       <div class="form-field">
         <input
-
           id="title"
           v-model="localTitle"
           type="text"
@@ -92,7 +91,7 @@ input[type='radio'] {
 </template>
 
 <script setup>
-import { ref, watch, toRefs, inject ,onMounted } from 'vue'
+import { ref, watch, toRefs, inject, onMounted } from 'vue'
 
 const props = defineProps({
   title: String,
@@ -101,11 +100,8 @@ const props = defineProps({
 })
 
 onMounted(() => {
-
-  localTitle.value =  localStorage.getItem("title")
-
-} )
-
+  localTitle.value = localStorage.getItem('title')
+})
 
 const emits = defineEmits(['update:title', 'update:category', 'update:difficulty'])
 

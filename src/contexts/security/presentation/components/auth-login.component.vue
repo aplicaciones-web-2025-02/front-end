@@ -50,10 +50,18 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { AuthApiService } from '../../infrastructure/auth-api.service.js'
 import { UserAssembler } from '../../domain/user.assembler.js'
 import { useRouter } from 'vue-router'
+
+onMounted(() => {
+  const autToken = localStorage.getItem('authToken')
+
+  if (autToken != null) {
+    router.push('/tutorials')
+  }
+})
 
 const router = useRouter()
 const authService = new AuthApiService()
@@ -77,8 +85,8 @@ const handleLogin = async () => {
     const response = await authService.login(credentials)
 
     if (response.status === 200) {
-      if (response.data.token) {
-        localStorage.setItem('authToken', response.data.token)
+      if (response.data.accessToken) {
+        localStorage.setItem('authToken', response.data.accessToken)
       }
 
       router.push('/')
