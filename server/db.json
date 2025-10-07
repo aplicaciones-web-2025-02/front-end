@@ -1,8 +1,38 @@
 {
+  "users": [
+    {
+      "email": "naldo@mail.com",
+      "password": "$2a$10$.i.1wttv2xWCRWD9GLlb/OGnsCLP0bFZ.YQqu0vRZ/zMfq.IXa//e",
+      "firstname": "Naldo",
+      "lastname": "test",
+      "id": 1
+    },
+    {
+      "email": "user1@mail.com",
+      "password": "$2a$10$m9uFJXi.6vB.nS64hvXy0eHb45AfcVnIpUsfXkiihoCVTde1CephC",
+      "firstname": "Naldo",
+      "lastname": "test",
+      "id": 2
+    },
+    {
+      "email": "user2@mail.com",
+      "password": "$2a$10$y1gKBUDNdlJTnwAt9m.rPO7VtYYzxxjaL5GsFpE8QITzTwVJX/hr2",
+      "firstname": "Naldo",
+      "lastname": "test",
+      "id": 3
+    },
+    {
+      "email": "user3@mail.com",
+      "password": "$2a$10$U58utCt31XxwYevJsEcKOe0Um1OPaBN0UKJHG2svdmY6nn.sEPDny",
+      "firstname": "Naldo",
+      "lastname": "test",
+      "id": 4
+    }
+  ],
   "tutorials": [
     {
       "id": "e8bd",
-      "title": "Tutorial 1 updated 21:12",
+      "title": "Tutorial .net",
       "category": "Frontend",
       "difficulty": "Beginner",
       "description": "",
@@ -11,6 +41,68 @@
       "tags": [],
       "published": false,
       "tutorialFile": null
+    },
+    {
+      "id": "a1f2",
+      "title": "Intro to Vue.js",
+      "category": "Frontend",
+      "difficulty": "Beginner",
+      "description": "Learn the basics of Vue.js and component structure.",
+      "duration": 45,
+      "releaseDate": "2025-10-01",
+      "tags": [
+        "vue",
+        "javascript",
+        "frontend"
+      ],
+      "published": true,
+      "tutorialFile": null
+    },
+    {
+      "id": "b3c4",
+      "title": "Building REST APIs with Node.js",
+      "category": "Backend",
+      "difficulty": "Intermediate",
+      "description": "Create secure and scalable REST APIs using Express and MongoDB.",
+      "duration": 60,
+      "releaseDate": "2025-09-15",
+      "tags": [
+        "nodejs",
+        "express",
+        "api",
+        "mongodb"
+      ],
+      "published": true,
+      "tutorialFile": null
+    },
+    {
+      "id": "d5e6",
+      "title": "Deploying with Docker and AWS",
+      "category": "DevOps",
+      "difficulty": "Advanced",
+      "description": "Containerize your app and deploy it using AWS ECS.",
+      "duration": 75,
+      "releaseDate": "2025-08-20",
+      "tags": [
+        "docker",
+        "aws",
+        "devops"
+      ],
+      "published": true,
+      "tutorialFile": null
+    },
+    {
+      "title": "Tutorial JAVA v2",
+      "category": "Frontend",
+      "difficulty": "Beginner",
+      "description": "",
+      "duration": 0,
+      "releaseDate": "",
+      "tags": [],
+      "published": false,
+      "tutorialFile": null,
+      "userId": 3,
+      "id": "F8Gr2RO"
     }
   ],
   "categories": [

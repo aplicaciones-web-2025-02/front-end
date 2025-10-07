@@ -3,6 +3,9 @@ import { TutorialApiService } from '@/contexts/tutorial/infraestructure/tutorial
 import { TutorialAssembler } from '@/contexts/tutorial/Domain/tutorial.assembler.js'
 import { ref, onBeforeMount } from 'vue'
 
+import { useRouter } from 'vue-router' ;
+
+const router = useRouter();
 
 const tutorials = ref([])
 const tutorialService = new TutorialApiService()
@@ -31,7 +34,9 @@ const onPage = (event) => {
 }
 
 const navigateToCreate = () => {
-  showModal.value = true
+
+  router.push("/tutorials/create");
+
 }
 
 const deleteTutorial = async (id) => {

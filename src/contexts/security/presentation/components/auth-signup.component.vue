@@ -124,7 +124,14 @@ const isLoading = ref(false)
 const errorMessage = ref('')
 
 const validateForm = () => {
-  if (!firstName.value || !lastName.value || !email.value || !username.value || !password.value || !confirmPassword.value) {
+  if (
+    !firstName.value ||
+    !lastName.value ||
+    !email.value ||
+    !username.value ||
+    !password.value ||
+    !confirmPassword.value
+  ) {
     errorMessage.value = 'Please fill in all fields'
     return false
   }
@@ -156,7 +163,7 @@ const handleSignup = async () => {
       lastName: lastName.value,
       email: email.value,
       username: username.value,
-      password: password.value
+      password: password.value,
     })
 
     const response = await authService.signup(userData)

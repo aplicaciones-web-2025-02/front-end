@@ -70,6 +70,11 @@ const loadReferenceData = async () => {
 
 const submitForm = async () => {
   submitted.value = true
+
+  debugger
+  localStorage.setItem("title", "test");
+
+
   const tutorialData = {
     title: title.value,
     category: category.value,

@@ -16,7 +16,7 @@ export class UserAssembler {
   static toLoginResource(username, password) {
     return {
       username,
-      password
+      password,
     }
   }
 
@@ -28,7 +28,7 @@ export class UserAssembler {
       firstName,
       lastName,
       role: 'user',
-      isActive: true
+      isActive: true,
     }
   }
 }
